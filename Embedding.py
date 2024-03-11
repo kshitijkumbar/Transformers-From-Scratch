@@ -11,4 +11,5 @@ class InputEmbedding(nn.Module):
         self.embedding = nn.Embedding(self.vocab_size, d_model)
     
     def forward(self, x):
+        # Returns vector of shape(d_model)
         return self.embedding(x) * math.sqrt(self.d_model)
