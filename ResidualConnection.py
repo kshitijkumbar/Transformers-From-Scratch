@@ -10,4 +10,4 @@ class ResidualConnection(nn.Module):
         self.norm = nn.LayerNorm(eps=1e-9)
 
     def forward(self, x, sublayer):
-        return x + self.dropout(sublayer(self.norm(x)))
+        return self.norm(x + self.dropout(sublayer(x)))
